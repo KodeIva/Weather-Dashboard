@@ -14,7 +14,7 @@ This is a Weather Dashboard which allows the user to check the wheather forecast
 
 ## Links
 
-- Solution URL: [Solution URL here](https://github.com/KodeIva/Weather-Dasboard)
+- Solution URL: [Solution URL here](https://github.com/KodeIva/Weather-Dashboard)
 - Live Site URL: [Live site URL here](https://kodeiva.github.io/Weather-Dashboard/)
 
 
