@@ -1,0 +1,53 @@
+header {
+  background: linear-gradient(to right, #3333cc 0%, #000066 100%);
+}
+
+.row {
+ display: flex;
+}
+aside {
+ display: flex;
+ flex-direction: column;
+}
+
+.input-group {
+ display: flex;
+ flex-direction: column;
+}
+
+#fiveDayForecast {
+ display: flex;
+}
+
+#forecast {
+ padding-left: 10px;
+ font-weight: bold;
+}
+
+input {
+ height: 45px;
+ width: 250px;
+ border-radius: 5px;
+}
+
+#search-button {
+ background-color: rgb(92, 92, 230);
+ margin-left: 10px;
+ width: 250px;
+ color: white;
+ border-radius: 5px;
+}
+
+#cities-container {
+ display: flex;
+ flex-direction: column;
+}
+
+#cities-container button {
+ background-color: gray;
+ color: white;
+ margin: 5px;
+ width: 250px;
+ border-radius: 5px;
+ border: none;
+}
