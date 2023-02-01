@@ -64,56 +64,55 @@ function renderWeatherData() {
                 <p>Temp: ${(data.list[7].main.temp).toFixed()}°C</p>
                 <p>Wind: ${data.list[7].wind.speed} KPH</p>
                 <p>Humidity: ${data.list[7].main.humidity} %</p>
-               `
+        `
        $("#forecast-one").css({"background":'gray', "color":"white","margin": "10px","padding": "30px"})
 
-        let dayTwo = moment(data.list[13].dt, 'X').format("DD/MM/YYYY")
-        let iconTwo = `https://openweathermap.org/img/wn/${data.list[13].weather[0].icon}@2x.png`;
+        let dayTwo = moment(data.list[15].dt, 'X').format("DD/MM/YYYY")
+        let iconTwo = `https://openweathermap.org/img/wn/${data.list[15].weather[0].icon}@2x.png`;
         let forecastTwo = document.querySelector('#forecast-two').innerHTML = `
                 <h4> <span>${dayTwo}</span></h4>
                 <img src="${iconTwo}"/>
-                <p>Temp: ${(data.list[13].main.temp).toFixed()}°C</p>
-                <p>Wind: ${data.list[13].wind.speed} KPH</p>
-                <p>Humidity: ${data.list[13].main.humidity} %</p>
-    
-    `
-     $("#forecast-two").css({"background":'gray', "color":"white","margin": "10px","padding": "30px"})
+                <p>Temp: ${(data.list[15].main.temp).toFixed()}°C</p>
+                <p>Wind: ${data.list[15].wind.speed} KPH</p>
+                <p>Humidity: ${data.list[15].main.humidity} %</p>    
+         `
+        $("#forecast-two").css({"background":'gray', "color":"white","margin": "10px","padding": "30px"})
 
-        let dayThree = moment(data.list[21].dt, 'X').format("DD/MM/YYYY")
-         let iconThree = `https://openweathermap.org/img/wn/${data.list[21].weather[0].icon}@2x.png`;
-    let forecastThree = document.querySelector('#forecast-three').innerHTML = `
-    <h4> <span>${dayThree}</span></h4>
+        let dayThree = moment(data.list[23].dt, 'X').format("DD/MM/YYYY")
+        let iconThree = `https://openweathermap.org/img/wn/${data.list[23].weather[0].icon}@2x.png`;
+        let forecastThree = document.querySelector('#forecast-three').innerHTML = `
+                <h4> <span>${dayThree}</span></h4>
                 <img src="${iconThree}"/>
-                <p>Temp: ${(data.list[21].main.temp).toFixed()}°C</p>
-                <p>Wind: ${data.list[21].wind.speed} KPH</p>
-                <p>Humidity: ${data.list[21].main.humidity} %</p>
+                <p>Temp: ${(data.list[23].main.temp).toFixed()}°C</p>
+                <p>Wind: ${data.list[23].wind.speed} KPH</p>
+                <p>Humidity: ${data.list[23].main.humidity} %</p>
     
-    `
-      $("#forecast-three").css({"background":'gray', "color":"white","margin": "10px","padding": "30px"})
+        `
+        $("#forecast-three").css({"background":'gray', "color":"white","margin": "10px","padding": "30px"})
 
-        let dayFour = moment(data.list[29].dt, 'X').format("DD/MM/YYYY")
-        let iconFour = `https://openweathermap.org/img/wn/${data.list[21].weather[0].icon}@2x.png`;
-    let forecastFour = document.querySelector('#forecast-four').innerHTML = `
-    <h4> <span>${dayFour}</span></h4>
-    <img src="${iconFour}"/>
-                <p>Temp: ${(data.list[29].main.temp).toFixed()}°C</p>
-                <p>Wind: ${data.list[29].wind.speed} KPH</p>
-                <p>Humidity: ${data.list[29].main.humidity} %</p>
+        let dayFour = moment(data.list[31].dt, 'X').format("DD/MM/YYYY")
+        let iconFour = `https://openweathermap.org/img/wn/${data.list[31].weather[0].icon}@2x.png`;
+        let forecastFour = document.querySelector('#forecast-four').innerHTML = `
+                <h4> <span>${dayFour}</span></h4>
+                <img src="${iconFour}"/>
+                <p>Temp: ${(data.list[31].main.temp).toFixed()}°C</p>
+                <p>Wind: ${data.list[31].wind.speed} KPH</p>
+                <p>Humidity: ${data.list[31].main.humidity} %</p>
     
-    `
-      $("#forecast-four").css({"background":'gray', "color":"white","margin": "10px","padding": "30px"})
+        `
+        $("#forecast-four").css({"background":'gray', "color":"white","margin": "10px","padding": "30px"})
    
-        let dayFive = moment(data.list[37].dt, 'X').format("DD/MM/YYYY")
-        let iconFive = `https://openweathermap.org/img/wn/${data.list[21].weather[0].icon}@2x.png`;
-    let forecastFive = document.querySelector('#forecast-five').innerHTML = `
-    <h4> <span>${dayFive}</span></h4>
-    <img src="${iconFive}"/>
-                <p>Temp: ${(data.list[37].main.temp).toFixed()}°C</p>
-                <p>Wind: ${data.list[37].wind.speed} KPH</p>
-                <p>Humidity: ${data.list[37].main.humidity} %</p>
+        let dayFive = moment(data.list[39].dt, 'X').format("DD/MM/YYYY")
+        let iconFive = `https://openweathermap.org/img/wn/${data.list[39].weather[0].icon}@2x.png`;
+        let forecastFive = document.querySelector('#forecast-five').innerHTML = `
+                <h4> <span>${dayFive}</span></h4>
+                <img src="${iconFive}"/>
+                <p>Temp: ${(data.list[39].main.temp).toFixed()}°C</p>
+                <p>Wind: ${data.list[39].wind.speed} KPH</p>
+                <p>Humidity: ${data.list[39].main.humidity} %</p>
     
-    `
-      $("#forecast-five").css({"background":'gray', "color":"white","margin": "10px","padding": "30px"})
+        `
+        $("#forecast-five").css({"background":'gray', "color":"white","margin": "10px","padding": "30px"})
      })
      input.value = ''
 }
@@ -139,7 +138,7 @@ searchBtn.addEventListener('click',function(e) {
  }
 })
 
-// Trying to add created buttons functionality
+// Add  functionality to the history buttons
 citiesContainer.addEventListener('click',function(e) {
  e.preventDefault()
  console.log(e.target);
@@ -147,7 +146,92 @@ citiesContainer.addEventListener('click',function(e) {
  if(e.target.matches('button')) {
   console.log(e.target);
   let cityName = e.target.textContent
-  renderWeatherData(cityName)
+  
+  fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=5&appid=7fd780c3c987cc66a03206e9736fa65e&units=metric`)
+    .then(response => response.json())
+    .then(data => {
+      let city = data[0]
+      lat = city.lat
+      lon = city.lon
+
+      return fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=7fd780c3c987cc66a03206e9736fa65e&units=metric`)
+    })
+    .then(response => response.json())
+    .then(data => {
+     
+       // Display the weather of a searched location    
+       let day = moment(data.list[0].dt, 'X').format("DD/MM/YYYY") 
+       let iconURL = `https://openweathermap.org/img/wn/${data.list[0].weather[0].icon}@2x.png`;
+       //console.log(day);
+       
+        let currentForecast = document.querySelector('#current-forecast').innerHTML = `
+        <h1>${data.city.name} <span>(${day})<img src="${iconURL}"/></span></h1>
+                <p>Temp: ${(data.list[0].main.temp).toFixed()}°C</p>
+                <p>Wind: ${data.list[0].wind.speed} KPH</p>
+                <p>Humidity: ${data.list[0].main.humidity} %</p>
+        `
+       $("#current-forecast").css({"border":"2px solid darkgray","padding":"10px"})
+
+       // Add title to the 5 day forecast
+       forecast.innerHTML = '5-Day Forecast:'
+   
+       //Display forecast for the next 5 days
+       let dayOne = moment(data.list[7].dt, 'X').format("DD/MM/YYYY")
+       let iconOne = `https://openweathermap.org/img/wn/${data.list[7].weather[0].icon}@2x.png`;
+       let forecastOne = document.querySelector('#forecast-one').innerHTML = `
+                <h4> <span>${dayOne}</span></h4>
+                <img src="${iconOne}"/>
+                <p>Temp: ${(data.list[7].main.temp).toFixed()}°C</p>
+                <p>Wind: ${data.list[7].wind.speed} KPH</p>
+                <p>Humidity: ${data.list[7].main.humidity} %</p>
+               `
+       $("#forecast-one").css({"background":'gray', "color":"white","margin": "10px","padding": "30px"})
+
+        let dayTwo = moment(data.list[15].dt, 'X').format("DD/MM/YYYY")
+        let iconTwo = `https://openweathermap.org/img/wn/${data.list[15].weather[0].icon}@2x.png`;
+        let forecastTwo = document.querySelector('#forecast-two').innerHTML = `
+                <h4> <span>${dayTwo}</span></h4>
+                <img src="${iconTwo}"/>
+                <p>Temp: ${(data.list[15].main.temp).toFixed()}°C</p>
+                <p>Wind: ${data.list[15].wind.speed} KPH</p>
+                <p>Humidity: ${data.list[15].main.humidity} %</p>    
+       `
+       $("#forecast-two").css({"background":'gray', "color":"white","margin": "10px","padding": "30px"})
+
+       let dayThree = moment(data.list[23].dt, 'X').format("DD/MM/YYYY")
+       let iconThree = `https://openweathermap.org/img/wn/${data.list[23].weather[0].icon}@2x.png`;
+       let forecastThree = document.querySelector('#forecast-three').innerHTML = `
+                <h4> <span>${dayThree}</span></h4>
+                <img src="${iconThree}"/>
+                <p>Temp: ${(data.list[23].main.temp).toFixed()}°C</p>
+                <p>Wind: ${data.list[23].wind.speed} KPH</p>
+                <p>Humidity: ${data.list[23].main.humidity} %</p>
+    
+       `
+       $("#forecast-three").css({"background":'gray', "color":"white","margin": "10px","padding": "30px"})
+
+       let dayFour = moment(data.list[31].dt, 'X').format("DD/MM/YYYY")
+       let iconFour = `https://openweathermap.org/img/wn/${data.list[31].weather[0].icon}@2x.png`;
+       let forecastFour = document.querySelector('#forecast-four').innerHTML = `
+                <h4> <span>${dayFour}</span></h4>
+                <img src="${iconFour}"/>
+                <p>Temp: ${(data.list[31].main.temp).toFixed()}°C</p>
+                <p>Wind: ${data.list[31].wind.speed} KPH</p>
+                <p>Humidity: ${data.list[31].main.humidity} %</p>    
+       `
+       $("#forecast-four").css({"background":'gray', "color":"white","margin": "10px","padding": "30px"})
+   
+       let dayFive = moment(data.list[39].dt, 'X').format("DD/MM/YYYY")
+       let iconFive = `https://openweathermap.org/img/wn/${data.list[39].weather[0].icon}@2x.png`;
+       let forecastFive = document.querySelector('#forecast-five').innerHTML = `
+                <h4> <span>${dayFive}</span></h4>
+                <img src="${iconFive}"/>
+                <p>Temp: ${(data.list[39].main.temp).toFixed()}°C</p>
+                <p>Wind: ${data.list[39].wind.speed} KPH</p>
+                <p>Humidity: ${data.list[39].main.humidity} %</p>    
+        `
+       $("#forecast-five").css({"background":'gray', "color":"white","margin": "10px","padding": "30px"})
+     })
  }
 })
 
