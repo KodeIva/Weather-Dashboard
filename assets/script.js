@@ -10,18 +10,22 @@ let geoCodeURL = "https://api.openweathermap.org/geo/1.0/direct?q=London&limit=5
 
 displayButtonsFromStorage()
 
-function render(cityList) {
+// Create search history buttons
+function historyButtons(cityList) {
  citiesContainer.innerHTML = ''
  for (let i = 0; i < cityList.length; i++) {
   let city = cityList[i]
+  let firstL = city.slice(0,1).toUpperCase()
+  let restL = city.slice(1)
+  city = firstL + restL
   cityBtn = document.createElement('button')
   cityBtn.innerHTML = city
   citiesContainer.prepend(cityBtn)
  }
 }
 
-
-function renderWeatherData(cityName) {
+// Render the weather data
+function renderWeatherData() {
  let searchCity = input.value
  fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${searchCity}&limit=5&appid=7fd780c3c987cc66a03206e9736fa65e&units=metric`)
     .then(response => response.json())
@@ -35,40 +39,38 @@ function renderWeatherData(cityName) {
     .then(response => response.json())
     .then(data => {
      
-      //console.log(data);
-       //console.log(data.list[0].dt);
-       //let day = moment(data.list[0].dt, 'X').format("DD/MM/YYYY HH:mm:ss")
+       // Display the weather of a searched location    
        let day = moment(data.list[0].dt, 'X').format("DD/MM/YYYY") 
        let iconURL = `https://openweathermap.org/img/wn/${data.list[0].weather[0].icon}@2x.png`;
        //console.log(day);
        
-      let currentForecast = document.querySelector('#current-forecast').innerHTML = `
+        let currentForecast = document.querySelector('#current-forecast').innerHTML = `
         <h1>${data.city.name} <span>(${day})<img src="${iconURL}"/></span></h1>
                 <p>Temp: ${(data.list[0].main.temp).toFixed()}°C</p>
-             
                 <p>Wind: ${data.list[0].wind.speed} KPH</p>
                 <p>Humidity: ${data.list[0].main.humidity} %</p>
         `
        $("#current-forecast").css({"border":"2px solid darkgray","padding":"10px"})
 
+       // Add title to the 5 day forecast
        forecast.innerHTML = '5-Day Forecast:'
    
-    let dayOne = moment(data.list[7].dt, 'X').format("DD/MM/YYYY")
-    let iconOne = `https://openweathermap.org/img/wn/${data.list[7].weather[0].icon}@2x.png`;
-    let forecastOne = document.querySelector('#forecast-one').innerHTML = `
-    <h4> <span>${dayOne}</span></h4>
+       //Display forecast for the next 5 days
+       let dayOne = moment(data.list[7].dt, 'X').format("DD/MM/YYYY")
+       let iconOne = `https://openweathermap.org/img/wn/${data.list[7].weather[0].icon}@2x.png`;
+       let forecastOne = document.querySelector('#forecast-one').innerHTML = `
+                <h4> <span>${dayOne}</span></h4>
                 <img src="${iconOne}"/>
                 <p>Temp: ${(data.list[7].main.temp).toFixed()}°C</p>
                 <p>Wind: ${data.list[7].wind.speed} KPH</p>
                 <p>Humidity: ${data.list[7].main.humidity} %</p>
-    
-    `
-  $("#forecast-one").css({"background":'gray', "color":"white","margin": "10px","padding": "30px"})
+               `
+       $("#forecast-one").css({"background":'gray', "color":"white","margin": "10px","padding": "30px"})
 
         let dayTwo = moment(data.list[13].dt, 'X').format("DD/MM/YYYY")
         let iconTwo = `https://openweathermap.org/img/wn/${data.list[13].weather[0].icon}@2x.png`;
-    let forecastTwo = document.querySelector('#forecast-two').innerHTML = `
-    <h4> <span>${dayTwo}</span></h4>
+        let forecastTwo = document.querySelector('#forecast-two').innerHTML = `
+                <h4> <span>${dayTwo}</span></h4>
                 <img src="${iconTwo}"/>
                 <p>Temp: ${(data.list[13].main.temp).toFixed()}°C</p>
                 <p>Wind: ${data.list[13].wind.speed} KPH</p>
@@ -113,16 +115,16 @@ function renderWeatherData(cityName) {
     `
       $("#forecast-five").css({"background":'gray', "color":"white","margin": "10px","padding": "30px"})
      })
-     
+     input.value = ''
 }
 
 
-
+// Storing searched cities in localStorage
 function storePlaces() {
  localStorage.setItem('data', JSON.stringify(cityList))
 }
 
-
+// Add click event to the search button
 searchBtn.addEventListener('click',function(e) {
  e.preventDefault()
  let searchCity = input.value
@@ -132,14 +134,12 @@ searchBtn.addEventListener('click',function(e) {
    if(!cityList.includes(searchCity)) {
      cityList.push(searchCity)
  }
- //cityList.push(searchCity)
- 
-storePlaces() 
-render(cityList)
+ storePlaces() 
+ historyButtons(cityList)
  }
 })
 
-
+// Trying to add created buttons functionality
 citiesContainer.addEventListener('click',function(e) {
  e.preventDefault()
  console.log(e.target);
@@ -151,6 +151,7 @@ citiesContainer.addEventListener('click',function(e) {
  }
 })
 
+// Displaying data fron localStorage
 function displayButtonsFromStorage() {
  storedCities = JSON.parse(localStorage.getItem('data'))
  console.log(storedCities);
@@ -158,5 +159,5 @@ function displayButtonsFromStorage() {
    cityList = storedCities
    console.log(cityList);
   }
- render(cityList)
+  historyButtons(cityList)
 }
